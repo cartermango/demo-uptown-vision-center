@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Uptown Vision Center | Richland, WA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Inter',sans-serif;background:#080810;color:#fff;overflow-x:hidden;}
+    .demo-bar{background:#0077b6;color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:700;letter-spacing:1px;position:sticky;top:0;z-index:100;}
+    nav{position:fixed;top:40px;left:0;right:0;z-index:99;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);}
+    .logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;}
+    .nav-cta{background:#0077b6;color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:600;}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;}
+    .orb{position:absolute;border-radius:50%;filter:blur(80px);}
+    .orb1{width:600px;height:600px;background:#0077b6;opacity:0.25;top:-100px;left:-200px;}
+    .orb2{width:400px;height:400px;background:#0077b6;opacity:0.12;bottom:-50px;right:-100px;}
+    .hero-content{position:relative;z-index:1;max-width:800px;}
+    .hero-emoji{font-size:3rem;margin-bottom:20px;}
+    h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;margin-bottom:20px;}
+    .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 40px;line-height:1.7;}
+    .btn{display:inline-block;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s;}
+    .btn:hover{transform:translateY(-2px);}
+    .btn-primary{background:#0077b6;color:#fff;margin-right:12px;}
+    .btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff;}
+    .section{padding:100px 20px;}
+    .container{max-width:1100px;margin:0 auto;}
+    .section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0077b6;margin-bottom:16px;}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:40px;}
+    .bento{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+    .bento-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;transition:border-color 0.3s;}
+    .bento-card:hover{border-color:#0077b6;}
+    .bento-card .icon{font-size:2rem;margin-bottom:16px;}
+    .bento-card h3{font-size:1.1rem;font-weight:600;margin-bottom:10px;}
+    .bento-card p{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
+    .about-text p{color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;}
+    .checks{list-style:none;margin-top:24px;}
+    .checks li{padding:8px 0;color:rgba(255,255,255,0.8);font-size:0.95rem;}
+    .checks li::before{content:'✓ ';color:#0077b6;font-weight:700;}
+    .about-visual{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;text-align:center;}
+    .about-visual .big-emoji{font-size:5rem;margin-bottom:16px;}
+    .contact-section{background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06);}
+    .contact-info p{color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.7;}
+    .contact-info a{color:#0077b6;text-decoration:none;}
+    footer{text-align:center;padding:30px;color:rgba(255,255,255,0.3);font-size:13px;border-top:1px solid rgba(255,255,255,0.06);}
+  </style>
+</head>
+<body>
+<div class="demo-bar">⚡ DEMO SITE — Built for Uptown Vision Center by Carter Crollard · carterbuisnesses@gmail.com</div>
+<nav>
+  <div class="logo">👓 Uptown Vision Center</div>
+  <a href="#contact" class="nav-cta">Contact Us</a>
+</nav>
+<section class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-emoji">👓</div>
+    <h1>Uptown Vision Center</h1>
+    <p class="hero-sub">Proudly serving Richland, WA and the surrounding community.</p>
+    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+    <a href="tel:(509) 943-3119" class="btn btn-outline">Call Now</a>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <p class="section-label">What We Offer</p>
+    <h2 class="section-title">Our Services</h2>
+    <div class="bento">
+      <div class="bento-card"><div class="icon">⭐</div><h3>Quality You Can Trust</h3><p>We take pride in everything we do, delivering top-notch service to every customer.</p></div>
+      <div class="bento-card"><div class="icon">📍</div><h3>Local & Community-Focused</h3><p>Proudly rooted in Richland, WA — serving our neighbors with integrity and care.</p></div>
+      <div class="bento-card"><div class="icon">🤝</div><h3>Always Here For You</h3><p>Friendly, responsive, and ready to help. We treat every customer like family.</p></div>
+      <div class="bento-card"><div class="icon">💯</div><h3>Satisfaction Guaranteed</h3><p>We stand behind our work. If you're not happy, we'll make it right — every time.</p></div>
+      <div class="bento-card"><div class="icon">🏆</div><h3>Years of Experience</h3><p>Decades of expertise built on a reputation that speaks for itself in the area.</p></div>
+      <div class="bento-card"><div class="icon">📞</div><h3>Easy to Reach</h3><p>No runaround. Call, email, or stop by — we'll get back to you fast.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section" style="background:rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Who We Are</h2>
+        <p>We're a locally-owned business in Richland, Washington, dedicated to serving our community with integrity and passion. Every customer matters to us.</p>
+        <p>Built on years of trust and hard work, we've become a fixture in the area — and we're proud of it.</p>
+        <ul class="checks">
+          <li>Locally owned & operated</li>
+          <li>Serving Richland, WA</li>
+          <li>Community trusted</li>
+          <li>Friendly, professional team</li>
+        </ul>
+      </div>
+      <div class="about-visual">
+        <div class="big-emoji">👓</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px;">Uptown Vision Center</h3>
+        <p style="color:rgba(255,255,255,0.6);">Proudly serving Richland, WA</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <p class="section-label">Get In Touch</p>
+    <h2 class="section-title">Visit Us Today</h2>
+    <div class="contact-info">
+      <p>📍 1335 George Washington Way, Richland, WA</p>
+      <p>📞 <a href="tel:(509) 943-3119">(509) 943-3119</a></p>
+      <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:0.85rem;">We'd love to hear from you — stop by or give us a call.</p>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="tel:(509) 943-3119" class="btn btn-primary">📞 Call Us Now</a>
+      <a href="#" class="btn btn-outline">Get Directions</a>
+    </div>
+  </div>
+</section>
+<footer>© 2026 Uptown Vision Center · Richland, WA · All rights reserved.</footer>
+</body>
+</html>
