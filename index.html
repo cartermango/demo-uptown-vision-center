@@ -4,119 +4,175 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Uptown Vision Center | Richland, WA</title>
+  <meta name="description" content="Uptown Vision Center — locally owned business proudly serving Richland, WA."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    *{margin:0;padding:0;box-sizing:border-box;}
+    :root{--primary:#0077b6;--bar-h:41px;--nav-h:73px;}
+    html{scroll-behavior:smooth;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Inter',sans-serif;background:#080810;color:#fff;overflow-x:hidden;}
-    .demo-bar{background:#0077b6;color:#fff;text-align:center;padding:10px;font-size:13px;font-weight:700;letter-spacing:1px;position:sticky;top:0;z-index:100;}
-    nav{position:fixed;top:40px;left:0;right:0;z-index:99;padding:16px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,16,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);}
-    .logo{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;}
-    .nav-cta{background:#0077b6;color:#fff;padding:10px 22px;border-radius:50px;text-decoration:none;font-size:14px;font-weight:600;}
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;}
-    .orb{position:absolute;border-radius:50%;filter:blur(80px);}
-    .orb1{width:600px;height:600px;background:#0077b6;opacity:0.25;top:-100px;left:-200px;}
-    .orb2{width:400px;height:400px;background:#0077b6;opacity:0.12;bottom:-50px;right:-100px;}
-    .hero-content{position:relative;z-index:1;max-width:800px;}
-    .hero-emoji{font-size:3rem;margin-bottom:20px;}
+    body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+    .demo-bar{position:fixed;top:0;left:0;right:0;z-index:200;background:#0077b6;color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:700;letter-spacing:1px;height:var(--bar-h);display:flex;align-items:center;justify-content:center;gap:6px;}
+    .demo-bar a{color:#fff;text-decoration:underline;}
+    nav{position:fixed;top:var(--bar-h);left:0;right:0;z-index:199;padding:0 40px;height:var(--nav-h);display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,16,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.08);transition:background 0.3s;}
+    .logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:#fff;text-decoration:none;}
+    .nav-links{display:flex;gap:32px;align-items:center;}
+    .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover{color:#fff;}
+    .nav-cta{background:#0077b6;color:#fff !important;padding:10px 22px;border-radius:50px;font-size:14px;font-weight:600;text-decoration:none;transition:opacity 0.2s,transform 0.2s;}
+    .nav-cta:hover{opacity:0.88;transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s;}
+    .mobile-menu{display:none;position:fixed;top:calc(var(--bar-h) + var(--nav-h));left:0;right:0;z-index:198;background:rgba(8,8,16,0.97);backdrop-filter:blur(20px);padding:24px 32px;flex-direction:column;gap:20px;border-bottom:1px solid rgba(255,255,255,0.08);}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:16px;font-weight:500;padding:4px 0;}
+    .mobile-menu .nav-cta{text-align:center;}
+    @media(max-width:768px){nav{padding:0 20px;}.nav-links{display:none;}.hamburger{display:flex;}}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:calc(var(--bar-h) + var(--nav-h) + 60px) 20px 80px;position:relative;overflow:hidden;}
+    .orb{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;}
+    .orb1{width:700px;height:700px;background:#0077b6;opacity:0.2;top:-150px;left:-250px;}
+    .orb2{width:500px;height:500px;background:#0077b6;opacity:0.1;bottom:-100px;right:-150px;}
+    .hero-content{position:relative;z-index:1;max-width:780px;}
+    .hero-emoji{font-size:3.5rem;margin-bottom:20px;display:block;}
     h1{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5rem);font-weight:900;line-height:1.1;margin-bottom:20px;}
-    .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 40px;line-height:1.7;}
-    .btn{display:inline-block;padding:16px 36px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s;}
+    .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.65);max-width:500px;margin:0 auto 40px;line-height:1.75;}
+    .btn-group{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    .btn{display:inline-block;padding:15px 34px;border-radius:50px;text-decoration:none;font-weight:600;font-size:1rem;transition:transform 0.2s,opacity 0.2s,background 0.2s,border-color 0.2s;cursor:pointer;border:2px solid transparent;}
     .btn:hover{transform:translateY(-2px);}
-    .btn-primary{background:#0077b6;color:#fff;margin-right:12px;}
-    .btn-outline{border:2px solid rgba(255,255,255,0.3);color:#fff;}
-    .section{padding:100px 20px;}
+    .btn-primary{background:#0077b6;color:#fff;border-color:#0077b6;}
+    .btn-primary:hover{opacity:0.85;}
+    .btn-outline{background:transparent;color:#fff;border-color:rgba(255,255,255,0.35);}
+    .btn-outline:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.7);}
+    .section{padding:90px 20px;position:relative;z-index:1;}
+    .section-alt{background:rgba(255,255,255,0.02);}
     .container{max-width:1100px;margin:0 auto;}
-    .section-label{font-size:12px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0077b6;margin-bottom:16px;}
-    .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:40px;}
-    .bento{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
-    .bento-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:32px;transition:border-color 0.3s;}
-    .bento-card:hover{border-color:#0077b6;}
-    .bento-card .icon{font-size:2rem;margin-bottom:16px;}
-    .bento-card h3{font-size:1.1rem;font-weight:600;margin-bottom:10px;}
-    .bento-card p{font-size:0.9rem;color:rgba(255,255,255,0.6);line-height:1.6;}
-    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
-    @media(max-width:768px){.about-grid{grid-template-columns:1fr;}}
-    .about-text p{color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;}
-    .checks{list-style:none;margin-top:24px;}
-    .checks li{padding:8px 0;color:rgba(255,255,255,0.8);font-size:0.95rem;}
-    .checks li::before{content:'✓ ';color:#0077b6;font-weight:700;}
-    .about-visual{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:40px;text-align:center;}
-    .about-visual .big-emoji{font-size:5rem;margin-bottom:16px;}
-    .contact-section{background:rgba(255,255,255,0.02);border-top:1px solid rgba(255,255,255,0.06);}
-    .contact-info p{color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.7;}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0077b6;margin-bottom:14px;display:block;}
+    .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;margin-bottom:16px;}
+    .section-sub{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.7;max-width:540px;margin-bottom:48px;}
+    .bento{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;}
+    .bento-card{background:rgba(255,255,255,0.035);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:32px;transition:border-color 0.3s,transform 0.3s,background 0.3s;}
+    .bento-card:hover{border-color:#0077b6;transform:translateY(-3px);background:rgba(255,255,255,0.055);}
+    .bento-card .icon{font-size:1.5rem;color:#0077b6;margin-bottom:16px;display:block;}
+    .bento-card h3{font-size:1rem;font-weight:600;margin-bottom:10px;}
+    .bento-card p{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.65;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+    @media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:40px;}}
+    .about-text p{color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;font-size:1rem;}
+    .checks{list-style:none;margin-top:28px;}
+    .checks li{padding:9px 0;color:rgba(255,255,255,0.85);font-size:0.95rem;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;align-items:center;gap:10px;}
+    .checks li::before{content:'✓';color:#0077b6;font-weight:800;font-size:1rem;flex-shrink:0;}
+    .about-visual{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:28px;padding:48px 40px;text-align:center;}
+    .about-visual .big-emoji{font-size:5rem;display:block;margin-bottom:20px;}
+    .about-visual h3{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:10px;}
+    .about-visual p{color:rgba(255,255,255,0.5);font-size:0.9rem;}
+    .badge{display:inline-block;margin-top:18px;padding:8px 18px;border-radius:50px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.6);}
+    .contact-section{background:rgba(255,255,255,0.015);border-top:1px solid rgba(255,255,255,0.06);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+    @media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
+    .contact-info p{color:rgba(255,255,255,0.7);margin-bottom:14px;font-size:1rem;line-height:1.6;}
     .contact-info a{color:#0077b6;text-decoration:none;}
-    footer{text-align:center;padding:30px;color:rgba(255,255,255,0.3);font-size:13px;border-top:1px solid rgba(255,255,255,0.06);}
+    .contact-info a:hover{text-decoration:underline;}
+    .contact-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:20px;padding:32px;display:flex;flex-direction:column;gap:14px;}
+    footer{text-align:center;padding:32px 20px;color:rgba(255,255,255,0.25);font-size:12px;border-top:1px solid rgba(255,255,255,0.05);position:relative;z-index:1;}
   </style>
 </head>
 <body>
-<div class="demo-bar">⚡ DEMO SITE — Built for Uptown Vision Center by Carter Crollard · carterbuisnesses@gmail.com</div>
-<nav>
-  <div class="logo">👓 Uptown Vision Center</div>
-  <a href="#contact" class="nav-cta">Contact Us</a>
-</nav>
-<section class="hero">
-  <div class="orb orb1"></div>
-  <div class="orb orb2"></div>
-  <div class="hero-content">
-    <div class="hero-emoji">👓</div>
-    <h1>Uptown Vision Center</h1>
-    <p class="hero-sub">Proudly serving Richland, WA and the surrounding community.</p>
-    <a href="#contact" class="btn btn-primary">Get In Touch</a>
-    <a href="tel:(509) 943-3119" class="btn btn-outline">Call Now</a>
+<div class="demo-bar">⚡ DEMO — Built for Uptown Vision Center · <a href="mailto:cartermango12@gmail.com">cartermango12@gmail.com</a> · Claim it for $300</div>
+<nav id="navbar">
+  <a href="#top" class="logo">👓 Uptown Vision Center</a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="nav-cta">Get In Touch</a>
   </div>
-</section>
-<section class="section">
-  <div class="container">
-    <p class="section-label">What We Offer</p>
-    <h2 class="section-title">Our Services</h2>
-    <div class="bento">
-      <div class="bento-card"><div class="icon">⭐</div><h3>Quality You Can Trust</h3><p>We take pride in everything we do, delivering top-notch service to every customer.</p></div>
-      <div class="bento-card"><div class="icon">📍</div><h3>Local & Community-Focused</h3><p>Proudly rooted in Richland, WA — serving our neighbors with integrity and care.</p></div>
-      <div class="bento-card"><div class="icon">🤝</div><h3>Always Here For You</h3><p>Friendly, responsive, and ready to help. We treat every customer like family.</p></div>
-      <div class="bento-card"><div class="icon">💯</div><h3>Satisfaction Guaranteed</h3><p>We stand behind our work. If you're not happy, we'll make it right — every time.</p></div>
-      <div class="bento-card"><div class="icon">🏆</div><h3>Years of Experience</h3><p>Decades of expertise built on a reputation that speaks for itself in the area.</p></div>
-      <div class="bento-card"><div class="icon">📞</div><h3>Easy to Reach</h3><p>No runaround. Call, email, or stop by — we'll get back to you fast.</p></div>
+  <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">Services</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+  <a href="#contact" class="nav-cta" onclick="closeMenu()">Get In Touch</a>
+</div>
+<section class="hero" id="top">
+  <div class="orb orb1"></div><div class="orb orb2"></div>
+  <div class="hero-content">
+    <span class="hero-emoji">👓</span>
+    <h1>Uptown Vision Center</h1>
+    <p class="hero-sub">Proudly serving Richland, WA and the surrounding community. Come experience the difference a local business makes.</p>
+    <div class="btn-group">
+      <a href="#contact" class="btn btn-primary">Get In Touch</a>
+      <a href="#services" class="btn btn-outline">Our Services</a>
     </div>
   </div>
 </section>
-<section class="section" style="background:rgba(255,255,255,0.01);">
+<section class="section" id="services">
+  <div class="container">
+    <span class="section-label">What We Offer</span>
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Everything you need, all in one place. We're here to serve Richland with quality and care.</p>
+    <div class="bento"><div class="bento-card"><div class="icon">✦</div><h3>Eye Exams</h3><p>We take pride in delivering exceptional eye exams to every customer, every time.</p></div><div class="bento-card"><div class="icon">✦</div><h3>Prescription Glasses</h3><p>We take pride in delivering exceptional prescription glasses to every customer, every time.</p></div><div class="bento-card"><div class="icon">✦</div><h3>Contact Lens Fittings</h3><p>We take pride in delivering exceptional contact lens fittings to every customer, every time.</p></div><div class="bento-card"><div class="icon">✦</div><h3>Designer Frames</h3><p>We take pride in delivering exceptional designer frames to every customer, every time.</p></div><div class="bento-card"><div class="icon">✦</div><h3>Same-Day Service</h3><p>We take pride in delivering exceptional same-day service to every customer, every time.</p></div><div class="bento-card"><div class="icon">✦</div><h3>Insurance Accepted</h3><p>We take pride in delivering exceptional insurance accepted to every customer, every time.</p></div></div>
+  </div>
+</section>
+<section class="section section-alt" id="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-text">
-        <p class="section-label">About Us</p>
+        <span class="section-label">About Us</span>
         <h2 class="section-title">Who We Are</h2>
-        <p>We're a locally-owned business in Richland, Washington, dedicated to serving our community with integrity and passion. Every customer matters to us.</p>
-        <p>Built on years of trust and hard work, we've become a fixture in the area — and we're proud of it.</p>
+        <p>We're a locally-owned business in Richland, Washington, committed to our community with passion and integrity.</p>
+        <p>Built on hard work and genuine care — proud to be a trusted part of the Richland community.</p>
         <ul class="checks">
-          <li>Locally owned & operated</li>
-          <li>Serving Richland, WA</li>
-          <li>Community trusted</li>
-          <li>Friendly, professional team</li>
+          <li>Locally owned &amp; operated</li>
+          <li>Proudly serving Richland, WA</li>
+          <li>Trusted by the community</li>
+          <li>Friendly &amp; professional team</li>
+          <li>Quality service, every time</li>
         </ul>
       </div>
       <div class="about-visual">
-        <div class="big-emoji">👓</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:8px;">Uptown Vision Center</h3>
-        <p style="color:rgba(255,255,255,0.6);">Proudly serving Richland, WA</p>
+        <span class="big-emoji">👓</span>
+        <h3>Uptown Vision Center</h3>
+        <p>Serving Richland, WA</p>
+        <span class="badge">📍 Local Business</span>
       </div>
     </div>
   </div>
 </section>
 <section class="section contact-section" id="contact">
   <div class="container">
-    <p class="section-label">Get In Touch</p>
+    <span class="section-label">Get In Touch</span>
     <h2 class="section-title">Visit Us Today</h2>
-    <div class="contact-info">
-      <p>📍 1335 George Washington Way, Richland, WA</p>
-      <p>📞 <a href="tel:(509) 943-3119">(509) 943-3119</a></p>
-      <p style="margin-top:16px;color:rgba(255,255,255,0.5);font-size:0.85rem;">We'd love to hear from you — stop by or give us a call.</p>
-    </div>
-    <div style="margin-top:28px;">
-      <a href="tel:(509) 943-3119" class="btn btn-primary">📞 Call Us Now</a>
-      <a href="#" class="btn btn-outline">Get Directions</a>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-info">
+          <p>📍 Richland, Washington</p>
+          
+          <p>🕐 Call or stop by — we'd love to see you.</p>
+        </div>
+        <div class="btn-group" style="margin-top:28px;justify-content:flex-start;flex-wrap:wrap;">
+          
+          <a href="https://www.google.com/maps/search/?api=1&query=Uptown%20Vision%20Center%2C%20Richland%2C%20WA" target="_blank" rel="noopener" class="btn btn-outline">📍 Get Directions</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <p style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;">We're here for you</p>
+        <p style="color:rgba(255,255,255,0.6);font-size:0.9rem;line-height:1.7;">Whether you have a question, want to book an appointment, or just want to stop by — we're always happy to help.</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Uptown%20Vision%20Center%2C%20Richland%2C%20WA" target="_blank" rel="noopener" class="btn btn-primary" style="text-align:center;">Find Us on Maps</a>
+      </div>
     </div>
   </div>
 </section>
-<footer>© 2026 Uptown Vision Center · Richland, WA · All rights reserved.</footer>
+<footer>© <span id="yr"></span> Uptown Vision Center · Richland, WA · All rights reserved.</footer>
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  const btn=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
+  btn.addEventListener('click',function(){menu.classList.toggle('open');const s=btn.querySelectorAll('span');if(menu.classList.contains('open')){s[0].style.transform='rotate(45deg) translate(5px,5px)';s[1].style.opacity='0';s[2].style.transform='rotate(-45deg) translate(5px,-5px)';}else{s.forEach(x=>{x.style.transform='';x.style.opacity='';});} });
+  function closeMenu(){menu.classList.remove('open');btn.querySelectorAll('span').forEach(x=>{x.style.transform='';x.style.opacity='';});}
+  document.addEventListener('click',function(e){if(!btn.contains(e.target)&&!menu.contains(e.target))closeMenu();});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){const h=a.getAttribute('href');if(h&&h.length>1){const t=document.querySelector(h);if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-126,behavior:'smooth'});}}})});
+  window.addEventListener('scroll',function(){document.getElementById('navbar').style.background=window.scrollY>60?'rgba(8,8,16,0.98)':'rgba(8,8,16,0.9)';});
+</script>
 </body>
 </html>
